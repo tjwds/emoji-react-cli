@@ -1,10 +1,10 @@
 const [, , targetId, reaction, ...optionalMessage] = process.argv;
 
 const exampleString =
-  "JMAP_USERNAME=username JMAP_TOKEN=token node index.mjs (message id or thread id) (reaction) (...optional text to send)";
+  "JMAP_USERNAME=username JMAP_TOKEN=token node index.mjs (thread id) (reaction) (...optional text to send)";
 
 if (!reaction) {
-  console.log("Invoke with a message ID to react to and a reaction to send.");
+  console.log("Invoke with a thread id to react to and a reaction to send.");
   console.log(exampleString);
   process.exit(1);
 }
@@ -12,7 +12,6 @@ if (!reaction) {
 if (!process.env.JMAP_USERNAME || !process.env.JMAP_TOKEN) {
   console.log("Please set your JMAP_USERNAME and JMAP_TOKEN");
   console.log(exampleString);
-
   process.exit(1);
 }
 
